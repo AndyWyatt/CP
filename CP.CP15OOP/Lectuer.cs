@@ -10,11 +10,12 @@ namespace CP.CP15OOP
     {
         public decimal Salery { get; private set; }
 
-        private Lectuer(string forename,
+        public Lectuer(string forename,
             string surname,
-            DateTime dob) : base(forename, surname, dob)
+            DateTime dob,
+            decimal salery) : base(forename, surname, dob)
         {
-
+            Salery = salery;
         }
 
         public void Teach()
