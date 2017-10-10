@@ -1,0 +1,31 @@
+﻿<Window x:Class="CP08.FreeCokeCan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CP08.FreeCokeCan"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFAC0000" Offset="0"/>
+                <GradientStop Color="#FFFF3D3D" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label x:Name="label" Content="Free can of coke?" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="36" Background="{x:Null}" Foreground="White" FontWeight="Bold"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="407,10,0,0" VerticalAlignment="Top" Width="100" Source="Images/cokeLogo.png"/>
+        <Button x:Name="butYesPlease" Content="Yes please..." FontSize="30" HorizontalAlignment="Left" Margin="145,79,0,0" VerticalAlignment="Top" Width="234" Height="53" Click="butYesPlease_Click"/>
+        <Image x:Name="imgCokeCan" HorizontalAlignment="Left" Height="155" Margin="218,148,0,0" VerticalAlignment="Top" Width="80" Source="Images/cokeCan.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="25.235"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+    </Grid>
+</Window>
