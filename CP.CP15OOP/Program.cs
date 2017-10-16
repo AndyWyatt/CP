@@ -10,10 +10,49 @@ namespace CP.CP15OOP
     {
         static void Main(string[] args)
         {
+            //InheritanceScenario();
+
+            PolymorphismScenario();
+        }
+
+        private static void PolymorphismScenario()
+        {
+            Person[] people = new Person[]
+            {
+                new Person("Dorris", "Jones", DateTime.Now.AddYears(-120)),
+                new Student("Oliver", "Bond", DateTime.Now.AddYears(-17)),
+                new Student("Kyle", "Fardoe-Walker", DateTime.Now.AddYears(-18)),
+                new Lectuer("Andy", "Wyatt", DateTime.Now.AddYears(-37), 20000.00m),
+                new Lectuer("Jacqui", "Maw", DateTime.Now.AddYears(-45), 21000.00m)
+            };
+
+            foreach (Person person in people)
+            {
+                if (person is Lectuer)
+                {
+                    Console.WriteLine("I'm a teacher");
+                    Lectuer     lecturer = person as Lectuer; // Preferred
+                                lecturer = (Lectuer)person; // Unpreferred
+                    lecturer.Teach();
+                }
+                else if (person is Student)
+                {
+                    Console.WriteLine("I'm a student");
+                    Student student = person as Student;
+                    student.DoGroupWork(null);
+                }
+                Console.WriteLine(person.Forename + " " + person.Surname);
+                person.DoWork();
+                Console.WriteLine();
+            }
+        }
+
+        private static void InheritanceScenario()
+        {
             Student andy = new Student(
-                "Andy",
-                "Wyatt",
-                new DateTime(2005, 7, 9));
+                            "Andy",
+                            "Wyatt",
+                            new DateTime(2005, 7, 9));
             andy.HeightInCM = 120.0;
 
             Student dave = new Student(

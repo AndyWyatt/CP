@@ -21,7 +21,14 @@ namespace CP.CP15OOP
         {
             Assignment result = null;
 
+            Console.WriteLine("DOING GROUP WORK!");
+
             return result;
+        }
+
+        public override void DoWork()
+        {
+            Console.WriteLine("I'm working on my assignment");
         }
     }
 }

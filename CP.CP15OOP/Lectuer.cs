@@ -20,7 +20,13 @@ namespace CP.CP15OOP
 
         public void Teach()
         {
+            Console.WriteLine("TEACH!");
+        }
 
+        public override void DoWork()
+        {
+            //base.DoWork();
+            Console.WriteLine("I'm teaching a class");
         }
     }
 }

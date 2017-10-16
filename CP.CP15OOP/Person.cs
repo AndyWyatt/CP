@@ -30,9 +30,9 @@ namespace CP.CP15OOP
             DOB = dob;
         }
 
-        public void DoWork()
+        public virtual void DoWork()
         {
-
+            Console.WriteLine("I'm working!");
         }
 
         public void GoToRoom(string roomNo)
