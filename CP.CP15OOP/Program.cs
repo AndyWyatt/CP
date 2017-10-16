@@ -12,7 +12,21 @@ namespace CP.CP15OOP
         {
             //InheritanceScenario();
 
-            PolymorphismScenario();
+            //PolymorphismScenario();
+
+            Device[] devices = new Device[]
+            {
+                new Tablet("Tab1", 10.0, 1),
+                new Tablet("Tab2", 20.0, 2),
+                new PC("PC1", 100.0, 3),
+                new PC("PC2", 150.0, 4)
+            };
+
+            foreach (Device device in devices)
+            {
+                device.SwitchOff();
+                Console.WriteLine();
+            }
         }
 
         private static void PolymorphismScenario()
