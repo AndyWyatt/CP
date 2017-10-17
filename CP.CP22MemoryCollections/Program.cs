@@ -31,8 +31,41 @@ namespace CP.CP22MemoryCollections
     {
         static void Main(string[] args)
         {
-            ArraysExample();
+            //ArraysExample();
+            //ArrayRecordExample();
 
+            // Aggregate functions
+            int[] ages =
+            {
+                37,
+                25,
+                16,
+                16,
+                18,
+                18,
+                17,
+                16,
+                18,
+                19,
+                22,
+                16,
+                17,
+                17,
+                16
+            };
+
+            Console.WriteLine($"Avg age = { ages.Average() }");
+            Console.WriteLine($"Youngest age = { ages.Min() }");
+            Console.WriteLine($"Avg adult age = { ages.Where(a => a >= 18).Average() }");
+            Console.WriteLine($"Ages as csv = { string.Join(",", ages.OrderByDescending(a => a) ) }");
+            foreach (int age in ages.OrderBy(a => a))
+            {
+                Console.WriteLine(age);
+            }
+        }
+
+        private static void ArrayRecordExample()
+        {
             Console.WriteLine("Who are you?");
             string userName = Console.ReadLine();
 
