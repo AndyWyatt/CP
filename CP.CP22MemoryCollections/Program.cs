@@ -6,12 +6,67 @@ using System.Threading.Tasks;
 
 namespace CP.CP22MemoryCollections
 {
+    class Record
+    {
+        public DateTime LogTime { get; private set; }
+        public string WhatItIs { get; set; }
+        public string Fault { get; set; }
+        public string LoggedBy { get; set; }
+
+        private Record()
+        {
+
+        }
+
+        public Record(string whatItIs, string fault, string loggedBy) : this()
+        {
+            LogTime = DateTime.Now;
+            WhatItIs = whatItIs;
+            Fault = fault;
+            LoggedBy = loggedBy;
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            int[] ages =
+            ArraysExample();
+
+            Console.WriteLine("Who are you?");
+            string userName = Console.ReadLine();
+
+            Console.WriteLine("How many items to log");
+            int noOfItemsToLog = int.Parse(Console.ReadLine());
+
+            Record[] records = new Record[noOfItemsToLog];
+            for (int i = 0; i < noOfItemsToLog; i++)
             {
+                Console.WriteLine("Item " + (i + 1));
+                Console.WriteLine("What is it?");
+                string whatItIs = Console.ReadLine();
+                Console.WriteLine("What's wrong?");
+                string whatsWrong = Console.ReadLine();
+
+                records[i] = new Record(whatItIs, whatsWrong, userName);
+            }
+
+            Console.WriteLine("All items logged:-");
+            foreach (Record record in records)
+            {
+                Console.WriteLine(
+$@"date logged    = { record.LogTime }
+logged by      = { record.LoggedBy }
+item           = { record.WhatItIs }
+what's wrong   = { record.Fault }");
+                Console.WriteLine();
+            }
+        }
+
+        private static void ArraysExample()
+        {
+            int[] ages =
+                        {
                 12,
                 12,
                 13,
