@@ -9,11 +9,12 @@ namespace CP.CP24Collections
     class Program
     {
         static Queue<Student> vaccinationQueue = new Queue<Student>();
+        static Queue<Plane> planesAtTerminal = new Queue<Plane>();
 
         static void Main(string[] args)
         {
             int option = 0;
-            const int exitOption = 4;
+            const int exitOption = 7;
 
             do
             {
@@ -21,7 +22,11 @@ namespace CP.CP24Collections
                 Console.WriteLine("2) Vaccinate a student");
                 Console.WriteLine("3) Print all students");
                 Console.WriteLine("----------------------");
-                Console.WriteLine("4) Exit");
+                Console.WriteLine("4) Queue a plane");
+                Console.WriteLine("5) Dequeue a plane");
+                Console.WriteLine("6) Print all planes in queue");
+                Console.WriteLine("----------------------");
+                Console.WriteLine($"{exitOption}) Exit");
 
                 Console.Write("Option? ");
                 option = int.Parse(Console.ReadLine());
@@ -37,6 +42,15 @@ namespace CP.CP24Collections
                     case 3:
                         OutputVacinationQueue();
                         break;
+                    case 4:
+                        QueuePlane();
+                        break;
+                    case 4:
+                        DequeuePlane();
+                        break;
+                    case 4:
+                        PrintPlanesInQueue();
+                        break;
                     case exitOption:
                         Console.WriteLine("Bye!");
                         break;
@@ -45,6 +59,44 @@ namespace CP.CP24Collections
                         break;
                 }
             } while (option != exitOption);
+        }
+
+        private static void QueuePlane()
+        {
+            string pilotName = string.Empty;
+            int portNo = 0;
+
+            Console.WriteLine("Pilot's name?");
+            pilotName = Console.ReadLine();
+
+            Console.WriteLine("Port No?");
+            portNo = int.Parse(Console.ReadLine());
+
+            Plane plane = new Plane(pilotName, portNo);
+            planesAtTerminal.Enqueue(plane);
+        }
+
+        private static void DequeuePlane()
+        {
+            if (planesAtTerminal.Count > 0)
+            {
+                Plane plane = planesAtTerminal.Dequeue();
+                Console.WriteLine("Plane left terminal!");
+                Console.WriteLine(plane);
+            }
+            else
+            {
+                Console.WriteLine("No plane at terminal!");
+            }
+        }
+
+        private static void PrintPlanesInQueue()
+        {
+            Console.WriteLine("Planes at terminal");
+            foreach (Plane plane in planesAtTerminal)
+            {
+                Console.WriteLine(plane);
+            }
         }
 
         private static void AddStudentToVaccinationQueue()
